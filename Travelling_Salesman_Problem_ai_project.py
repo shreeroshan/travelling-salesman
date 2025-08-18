@@ -1,19 +1,21 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use("TkAgg") 
 from matplotlib.animation import FuncAnimation
 import random
 import string
 
 # Parameters
-NUM_CITIES = 50
+NUM_CITIES = 40
 POP_SIZE = 400
 GENERATIONS = 500
 MUTATION_RATE = min(0.05, 1.0 / NUM_CITIES)
 ELITE_SIZE = 1
 
-np.random.seed(42)
-random.seed(42)
+# np.random.seed(42)
+# random.seed(42)
 
 cities = np.random.rand(NUM_CITIES, 2) * 150
 
@@ -65,30 +67,30 @@ def crossover(p1, p2):
             while child[pos % NUM_CITIES] != -1:
                 pos += 1
             child[pos % NUM_CITIES] = city
-    print(f" \n   Crossover: { [city_names[i] for i in p1] } × { [city_names[i] for i in p2] }")
-    print(f" \n   Child: { [city_names[i] for i in child] }")
+    # print(f" \n   Crossover: { [city_names[i] for i in p1] } × { [city_names[i] for i in p2] }")
+    # print(f" \n   Child: { [city_names[i] for i in child] }")
     return child
 
 def mutate(path):
     if random.random() < MUTATION_RATE:
         i, j = random.sample(range(1, NUM_CITIES), 2)
         path[i], path[j] = path[j], path[i]
-        print(f"  \n    Mutation: swapped {city_names[i]} and {city_names[j]}")
+        # print(f"  \n    Mutation: swapped {city_names[i]} and {city_names[j]}")
     return path
 
 def next_gen(pop):
     print("\n--- Creating Next Generation ---")
     ranked = sorted(pop, key=path_length)
-    print(f" \n Top {ELITE_SIZE} kept as elite.")
+    # print(f" \n Top {ELITE_SIZE} kept as elite.")
     new_pop = ranked[:ELITE_SIZE]
     while len(new_pop) < POP_SIZE:
         p1, p2 = random.sample(ranked[:20], 2)
-        print(f" \n Selected:")
-        print(f"   P1: { [city_names[i] for i in p1] } → {path_length(p1):.2f}")
-        print(f"   P2: { [city_names[i] for i in p2] } → {path_length(p2):.2f}")
+        # print(f" \n Selected:")
+        # print(f"   P1: { [city_names[i] for i in p1] } → {path_length(p1):.2f}")
+        # print(f"   P2: { [city_names[i] for i in p2] } → {path_length(p2):.2f}")
         child = crossover(p1, p2)
         child = mutate(child)
-        print(f"   Child distance: {path_length(child):.2f}")
+        # print(f"   Child distance: {path_length(child):.2f}")
         new_pop.append(child)
     return new_pop
 
@@ -98,7 +100,11 @@ ax.set_xlim(0, 150)
 ax.set_ylim(0, 150)
 ax.set_title("TSP Route Animation with City Labels")
 
-sc = ax.scatter(cities[:, 0], cities[:, 1], color='red')
+# sc = ax.scatter(cities[:, 0], cities[:, 1], color='red')
+# Color all cities blue except the start city
+colors = ['blue'] * NUM_CITIES
+colors[START_CITY] = 'red'  # start city is red
+sc = ax.scatter(cities[:, 0], cities[:, 1], color=colors)
 lines, = ax.plot([], [], 'b-o')
 text_annotations = []
 arrow_artists = []  # NEW
