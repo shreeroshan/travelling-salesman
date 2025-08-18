@@ -14,7 +14,7 @@ GENERATIONS = 500
 MUTATION_RATE = min(0.05, 1.0 / NUM_CITIES)
 ELITE_SIZE = 1
 
-# np.random.seed(42)
+np.random.seed(42)
 # random.seed(42)
 
 cities = np.random.rand(NUM_CITIES, 2) * 150
