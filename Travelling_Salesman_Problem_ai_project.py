@@ -9,9 +9,10 @@ import string
 
 # Parameters
 NUM_CITIES = 40
-POP_SIZE = 400
+POP_SIZE = 100
 GENERATIONS = 500
-MUTATION_RATE = min(0.05, 1.0 / NUM_CITIES)
+# MUTATION_RATE = min(0.05, 1.0 / NUM_CITIES)
+MUTATION_RATE=0.05
 ELITE_SIZE = 1
 
 np.random.seed(42)
