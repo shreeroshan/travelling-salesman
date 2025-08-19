@@ -6,6 +6,8 @@ matplotlib.use("TkAgg")
 from matplotlib.animation import FuncAnimation
 import random
 import string
+from matplotlib.animation import PillowWriter
+
 
 # Parameters
 NUM_CITIES = 40
@@ -173,6 +175,13 @@ def update(frame):
     ax.set_title(f"Generation {generation_counter[0]} | Distance: {best_distance:.2f}")
     return lines, *text_annotations, *arrow_artists
 
+# ani = FuncAnimation(fig, update, frames=GENERATIONS, interval=10, repeat=False)
+# plt.tight_layout()
+# plt.show()
 ani = FuncAnimation(fig, update, frames=GENERATIONS, interval=10, repeat=False)
+
+# Save the animation as GIF
+ani.save("tsp_animation_20nodes.gif", writer=PillowWriter(fps=30))
+
 plt.tight_layout()
 plt.show()
