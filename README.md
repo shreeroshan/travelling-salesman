@@ -1,11 +1,11 @@
-# Travelling Salesman Problem (TSP) with Genetic Algorithm 🧬✈️
+# Travelling Salesman Problem (TSP) with Genetic Algorithm 
 
 This project demonstrates solving the **Travelling Salesman Problem (TSP)** using a **Genetic Algorithm (GA)** with real-time animated visualization in Python.  
 The algorithm evolves a population of possible routes to minimize the total travel distance while visiting all cities exactly once and returning to the start.
 
 ---
 
-## 🚀 Features
+## Features
 - Random city generation with labels
 - Fixed start city (highlighted in red)
 - Genetic Algorithm with:
@@ -24,7 +24,7 @@ The algorithm evolves a population of possible routes to minimize the total trav
 
 You can customize the following parameters:
 
-```python
+python
 NUM_CITIES = 20           # Number of cities in the problem
 POP_SIZE = 60             # Population size
 GENERATIONS = 150         # Number of generations to evolve
@@ -33,14 +33,13 @@ ELITE_SIZE = 1            # Number of elite individuals to carry over
 
 
 
-## 📂 Project Structure
+##  Project Structure
 
----
 
-## 🔧 Installation & Setup
+
+## Installation & Setup
 
 ### 1. Clone the Repository
-```bash
 git clone https://github.com/<your-username>/<your-repo-name>.git
 cd <your-repo-name>
 
@@ -53,5 +52,8 @@ venv\Scripts\activate       # On Windows
 pip install -r requirements.txt
 
 ### 4. Run the Project
-python tsp_ga.py
+python Travelling_Salesman_Problem_ai_project.py
 
+### 5. Demo output
+Here's how the animation looks
+![TSP Animation](tsp_animation_20nodes.gif)
