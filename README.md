@@ -20,19 +20,18 @@ The algorithm evolves a population of possible routes to minimize the total trav
 ---
 
 
-##  Parameters
+```markdown
+## Parameters
 
 You can customize the following parameters:
 
-python
+```python
 NUM_CITIES = 20           # Number of cities in the problem
 POP_SIZE = 60             # Population size
 GENERATIONS = 150         # Number of generations to evolve
 MUTATION_RATE = 0.05      # Mutation rate (0 to 1)
 ELITE_SIZE = 1            # Number of elite individuals to carry over
-
-
-
+```
 ##  Project Structure
 
 
@@ -40,9 +39,10 @@ ELITE_SIZE = 1            # Number of elite individuals to carry over
 ## Installation & Setup
 
 ### 1. Clone the Repository
+``` 
 git clone https://github.com/<your-username>/<your-repo-name>.git
 cd <your-repo-name>
-
+```
 ### 2. Create a virtual environment(recommended)
 python -m venv venv
 source venv/bin/activate    # On Linux/Mac
